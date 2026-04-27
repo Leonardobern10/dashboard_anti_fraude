@@ -1,0 +1,64 @@
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  useTheme,
+} from "@mui/material";
+import RiskCell from "./RiskCell";
+import type { Order } from "../../types/Order";
+
+const headers = [
+  "id",
+  "usuario",
+  "valor",
+  "status",
+  "data/hora",
+  "metodo pag.",
+  "risco",
+];
+
+type TableOrdersProps = {
+  data: Order[];
+};
+
+export default function TableOrders({ data }: TableOrdersProps) {
+  const theme = useTheme();
+  return (
+    <TableContainer component={Paper}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            {headers.map((el) => (
+              <TableCell
+                sx={{ color: theme.palette.secondary.dark, fontWeight: 300 }}
+                key={el}
+              >
+                {el}
+              </TableCell>
+            ))}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((el) => (
+            <TableRow key={el.id}>
+              <TableCell>{el.id}</TableCell>
+              <TableCell>{el.user}</TableCell>
+              <TableCell>{el.value}</TableCell>
+              <TableCell>{el.orderStatus}</TableCell>
+              <TableCell>
+                {new Date(el.createdAt).toLocaleDateString("pt-BR")} |{" "}
+                {new Date(el.createdAt).toLocaleTimeString("pt-BR")}
+              </TableCell>
+              <TableCell>{el.payment}</TableCell>
+              <RiskCell risk="baixo" />
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
