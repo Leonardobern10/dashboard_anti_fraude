@@ -7,8 +7,8 @@ export default function Header() {
       direction="row"
       sx={{
         gridArea: "header",
-        borderBottom: 2,
-        borderColor: theme.palette.primary.main,
+        backgroundColor: "#c5c5c5a6",
+        boxShadow: "2px 0px 5px #c5c5c5",
       }}
       component="header"
     >

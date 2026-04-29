@@ -9,9 +9,9 @@ const container = {
           "header header"
           "aside content"
         `,
-  gridTemplateColumns: "5% 1fr",
-  gridTemplateRows: "7% 1fr",
-  height: "100vh",
+  gridTemplateColumns: "10% 90%",
+  gridTemplateRows: "7% 93%",
+  height: "100%",
   justifyContent: "center",
 };
 
