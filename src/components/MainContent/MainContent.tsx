@@ -36,6 +36,8 @@ export default function MainContent() {
               title={el.title}
               value={el.value!}
               desc={el.desc}
+              color={el.color}
+              icon={el.icon}
             />
           ))}
       </Stack>

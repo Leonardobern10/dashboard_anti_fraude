@@ -1,13 +1,11 @@
-import { Stack, Typography, useTheme } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 
 export default function Header() {
-  const theme = useTheme();
   return (
     <Stack
       direction="row"
       sx={{
-        gridArea: "header",
-        backgroundColor: "#c5c5c5a6",
+        height: "8vh",
         boxShadow: "2px 0px 5px #c5c5c5",
       }}
       component="header"

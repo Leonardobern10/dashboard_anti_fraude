@@ -15,7 +15,8 @@ export default function ListNav({ list }: ListNavProps) {
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        border: 2,
+        paddingX: 2,
+        rowGap: 2,
       }}
     >
       {list.map((el) => (

@@ -20,9 +20,9 @@ export default function ListItemNav({
       component="li"
       sx={{
         width: "100%",
-        justifyContent: "space-between",
+        justifyContent: "flex-start",
         alignItems: "center",
-        border: 2,
+        columnGap: 1,
       }}
     >
       {SVG}

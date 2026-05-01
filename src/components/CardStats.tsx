@@ -6,32 +6,45 @@ import {
   Typography,
   useTheme,
   Box,
+  type SvgIconProps,
+  SvgIcon,
+  type SvgIconTypeMap,
 } from "@mui/material";
-import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import { motion } from "motion/react";
+import type { OverridableComponent } from "@mui/material/OverridableComponent";
 
 type CardStatsProps = {
   title: string;
   value: number;
   desc: string;
+  color?: string;
+  icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
 };
 
-export default function CardStats({ title, value, desc }: CardStatsProps) {
+export default function CardStats({
+  title,
+  value,
+  desc,
+  color,
+  icon: Icon,
+}: CardStatsProps) {
   const theme = useTheme();
 
   return (
     <Card
       variant="elevation"
       sx={{
-        backgroundColor: theme.palette.primary.dark,
+        backgroundColor: theme.palette.secondary.light,
         width: "12rem",
+        border: 2,
+        borderColor: `${color}`,
       }}
       component={motion.div}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{
         y: -5,
-        boxShadow: `2px 2px 5px ${theme.palette.primary.dark}`,
+        boxShadow: `1px 1px 10px ${color}`,
       }}
     >
       <CardContent>
@@ -41,18 +54,21 @@ export default function CardStats({ title, value, desc }: CardStatsProps) {
             direction="row"
           >
             <Typography
-              sx={{ color: theme.palette.secondary.main }}
+              sx={{
+                color: theme.palette.secondary.contrastText,
+                fontWeight: 500,
+              }}
               variant="h4"
               component="h3"
             >
               {title}
             </Typography>
-            <CalendarMonthOutlinedIcon color="secondary" />
+            <Icon sx={{ color: color }} />
           </Stack>
           <Box sx={{ height: "40%", padding: 0 }}>
             <Typography
               variant="caption"
-              sx={{ fontSize: 35, color: theme.palette.secondary.main }}
+              sx={{ fontSize: 35, color: theme.palette.secondary.contrastText }}
             >
               {value}
             </Typography>
@@ -65,7 +81,7 @@ export default function CardStats({ title, value, desc }: CardStatsProps) {
             <Typography
               variant="subtitle1"
               sx={{
-                color: theme.palette.secondary.main,
+                color: theme.palette.secondary.contrastText,
                 whiteSpace: "nowrap",
               }}
             >

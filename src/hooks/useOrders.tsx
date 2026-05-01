@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import type { Order } from "../types/Order";
+import { getOrders } from "../services/OrdersService";
 
 export type CountStatsOrderResponse = {
   orders: Order[];
@@ -26,9 +27,9 @@ export const useOrders = () => {
       try {
         const response = await axios.get(
           "http://localhost:3000/api/v1/orders/statistics/",
+          { withCredentials: true },
         );
         const data = response.data.data;
-        console.log(data);
         setOrders(data.orders);
         setStats({
           all: data.all,
