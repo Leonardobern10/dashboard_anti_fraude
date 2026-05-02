@@ -10,6 +10,8 @@ import {
 } from "@mui/material";
 import RiskCell from "./RiskCell";
 import type { Order } from "../../types/Order";
+import { transformStatus } from "../../utils/tranformStatus";
+import StatusCell from "./StatusCell";
 
 const headers = [
   "id",
@@ -48,7 +50,7 @@ export default function TableOrders({ data }: TableOrdersProps) {
               <TableCell>{el.id}</TableCell>
               <TableCell>{el.user}</TableCell>
               <TableCell>{el.value}</TableCell>
-              <TableCell>{el.orderStatus}</TableCell>
+              <StatusCell status={el.orderStatus} />
               <TableCell>
                 {new Date(el.createdAt).toLocaleDateString("pt-BR")} |{" "}
                 {new Date(el.createdAt).toLocaleTimeString("pt-BR")}

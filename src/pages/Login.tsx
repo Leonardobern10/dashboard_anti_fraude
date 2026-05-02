@@ -7,10 +7,11 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import SaveIcon from "@mui/icons-material/Save";
 import { useLogin } from "../hooks/useLogin";
 
 export default function Login() {
-  const { handleSubmit, control, onSubmit } = useLogin();
+  const { handleSubmit, control, onSubmit, loading } = useLogin();
   const theme = useTheme();
 
   return (
@@ -62,7 +63,13 @@ export default function Login() {
           )}
         />
 
-        <Button type="submit" variant="contained">
+        <Button
+          loading={loading}
+          loadingIndicator={<SaveIcon />}
+          loadingPosition="end"
+          type="submit"
+          variant="contained"
+        >
           Entrar
         </Button>
       </Stack>

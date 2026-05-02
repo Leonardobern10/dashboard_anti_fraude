@@ -4,7 +4,7 @@ export type Order = {
   value: number;
   createdAt: Date;
   updatedAt: Date;
-  orderStatus: string;
+  orderStatus: OrderStatus;
   orderHistory: string[];
   payment: null | string;
 };

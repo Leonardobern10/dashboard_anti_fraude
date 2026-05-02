@@ -1,5 +1,7 @@
 import { Stack, Typography, type SvgIconProps } from "@mui/material";
 import type { ReactNode } from "react";
+import { motion } from "motion/react";
+import { theme } from "../../theme/theme";
 
 type ListItemNavProps = {
   SVG: ReactNode;
@@ -17,7 +19,6 @@ export default function ListItemNav({
   return (
     <Stack
       direction="row"
-      component="li"
       sx={{
         width: "100%",
         justifyContent: "flex-start",

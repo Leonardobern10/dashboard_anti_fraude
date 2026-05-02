@@ -10,8 +10,9 @@ const styles = {
     gridArea: "content",
     width: "100%",
     paddingX: 10,
+
     paddingY: 4,
-    rowGap: 2,
+    rowGap: 4,
   },
   boxContent: {
     display: "flex",
@@ -28,7 +29,7 @@ export default function MainContent() {
   return (
     <Stack sx={styles.container} direction="column">
       {error && <Typography>{error}</Typography>}
-      <Stack direction="row" spacing={8} sx={{ height: "30%" }}>
+      <Stack direction="row" spacing={8} sx={{ height: "30%", width: "100%" }}>
         {stats &&
           statsData(stats).map((el) => (
             <CardStats
