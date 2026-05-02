@@ -6,8 +6,6 @@ import {
   Typography,
   useTheme,
   Box,
-  type SvgIconProps,
-  SvgIcon,
   type SvgIconTypeMap,
 } from "@mui/material";
 import { motion } from "motion/react";
@@ -35,7 +33,7 @@ export default function CardStats({
       variant="elevation"
       sx={{
         backgroundColor: theme.palette.secondary.light,
-        width: "12rem",
+        width: "100%",
         border: 2,
         borderColor: `${color}`,
       }}
