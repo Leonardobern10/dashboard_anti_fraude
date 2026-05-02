@@ -1,13 +1,9 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
-
 import { AnimatePresence, motion } from "motion/react";
-
 import { useState } from "react";
-
 import BarChartIcon from "@mui/icons-material/BarChart";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import GroupsIcon from "@mui/icons-material/Groups";
-
 import TitleNavBar from "./TitleNavBar";
 import ListNav from "./ListNav";
 

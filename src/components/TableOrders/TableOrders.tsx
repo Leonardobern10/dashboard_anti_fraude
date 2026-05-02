@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import RiskCell from "./RiskCell";
 import type { Order } from "../../types/Order";
-import { transformStatus } from "../../utils/tranformStatus";
 import StatusCell from "./StatusCell";
 
 const headers = [

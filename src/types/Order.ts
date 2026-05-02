@@ -1,3 +1,5 @@
+import type { OrderStatus } from "./OrderStatus";
+
 export type Order = {
   id: string;
   user: string;

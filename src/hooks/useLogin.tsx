@@ -9,7 +9,7 @@ export const useLogin = () => {
   const login = useAuthStore((state) => state.login);
   const logout = useAuthStore((state) => state.logout);
   const loading = useAuthStore((state) => state.loading);
-  const { handleSubmit, control, reset, setError } = useForm<Client>({
+  const { handleSubmit, control, reset } = useForm<Client>({
     defaultValues: {
       email: "",
       password: "",

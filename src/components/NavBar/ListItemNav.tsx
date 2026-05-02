@@ -1,7 +1,5 @@
-import { Stack, Typography, type SvgIconProps } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import type { ReactNode } from "react";
-import { motion } from "motion/react";
-import { theme } from "../../theme/theme";
 
 type ListItemNavProps = {
   SVG: ReactNode;

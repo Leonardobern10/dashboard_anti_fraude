@@ -4,7 +4,7 @@ import App from "./App.tsx";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "./theme/theme.ts";
 import "./assets/index.css";
-import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import ProtectedRoute from "./routes/ProtectedRoute.tsx";

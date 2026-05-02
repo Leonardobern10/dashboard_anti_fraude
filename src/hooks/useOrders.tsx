@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import type { Order } from "../types/Order";
-import { getOrders } from "../services/OrdersService";
 
 export type CountStatsOrderResponse = {
   orders: Order[];
