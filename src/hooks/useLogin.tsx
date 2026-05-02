@@ -1,11 +1,15 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import type { Client } from "../types/Client";
-import axios from "axios";
+import { useAuthStore } from "../store/authStore";
 
 export const useLogin = () => {
   const navigate = useNavigate();
-  const { handleSubmit, control, reset } = useForm<Client>({
+  const logged = useAuthStore((state) => state.logged);
+  const login = useAuthStore((state) => state.login);
+  const logout = useAuthStore((state) => state.logout);
+  const loading = useAuthStore((state) => state.loading);
+  const { handleSubmit, control, reset, setError } = useForm<Client>({
     defaultValues: {
       email: "",
       password: "",
@@ -14,16 +18,27 @@ export const useLogin = () => {
 
   const onSubmit = async (data: Client) => {
     try {
-      await axios.post("http://localhost:3000/api/v1/auth/dashboard/", data, {
-        withCredentials: true,
-      });
+      await login(data);
       reset();
       navigate("/dashboard/");
     } catch (error) {
-      console.error(error);
+      if (error instanceof Error) {
+        alert(error.message);
+      }
       navigate("/login/");
     }
   };
 
-  return { onSubmit, handleSubmit, control };
+  const tryLogout = async () => {
+    try {
+      await logout();
+      navigate("/login");
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message);
+      }
+    }
+  };
+
+  return { onSubmit, tryLogout, handleSubmit, control, logged, loading };
 };
