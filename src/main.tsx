@@ -4,9 +4,10 @@ import App from "./App.tsx";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { theme } from "./theme/theme.ts";
 import "./assets/index.css";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
+import ProtectedRoute from "./routes/ProtectedRoute.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider theme={theme}>
@@ -16,7 +17,14 @@ createRoot(document.getElementById("root")!).render(
         <Routes>
           <Route element={<App />}>
             <Route index path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route
+              path="/dashboard"
+              element={<ProtectedRoute children={<Dashboard />} />}
+            />
+            <Route
+              path="*"
+              element={<ProtectedRoute children={<Dashboard />} />}
+            />
           </Route>
         </Routes>
       </StrictMode>
