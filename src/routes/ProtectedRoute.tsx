@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
 
 type ProtectedRouteProps = {
@@ -7,11 +7,9 @@ type ProtectedRouteProps = {
 
 export default function ProtectedRoute({ children }: ProtectedRouteProps) {
   const logged = useAuthStore((state) => state.logged);
-  const navigate = useNavigate();
-
+  console.log(logged);
   if (!logged) {
-    navigate("login");
-  } else {
-    return children;
+    return <Navigate to="/login" replace />;
   }
+  return children;
 }
