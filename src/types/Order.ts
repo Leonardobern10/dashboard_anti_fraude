@@ -1,4 +1,6 @@
+import type { OrderHistory } from "./OrderHistory";
 import type { OrderStatus } from "./OrderStatus";
+import type { PaymentMethod } from "./PaymentMethod";
 
 export type Order = {
   id: string;
@@ -7,6 +9,6 @@ export type Order = {
   createdAt: Date;
   updatedAt: Date;
   orderStatus: OrderStatus;
-  orderHistory: string[];
-  payment: null | string;
+  orderHistory: OrderHistory[];
+  payment: null | PaymentMethod;
 };
