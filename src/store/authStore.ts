@@ -17,8 +17,8 @@ export const useAuthStore = create<AuthStoreType>((set) => ({
     login: async (data: Client) => {
         try {
             set({ loading: true })
-            await requestLogin(data);
-            set({ logged: true, user: data.email });
+            const name = await requestLogin(data);
+            set({ logged: true, user: name });
         } catch (error) {
             set({ logged: false })
             throw error;
