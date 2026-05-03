@@ -1,6 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import logo from "/logo.svg";
 import avatar from "../../assets/img/user_avatar.png";
+import { useAuthStore } from "../../store/authStore";
 
 const styles = {
   container: {
@@ -18,6 +19,7 @@ const styles = {
 };
 
 export default function Header() {
+  const user = useAuthStore((state) => state.user);
   return (
     <Stack direction="row" sx={styles.container} component="header">
       <Box>
@@ -27,7 +29,7 @@ export default function Header() {
       </Box>
       <Stack direction="row" spacing={4} sx={styles.userInfo}>
         <img src={avatar} loading="lazy" alt="user image" />
-        <Typography variant="body2">Admin</Typography>
+        <Typography variant="body2">"Olá, {user ?? "Convidado"}"</Typography>
       </Stack>
     </Stack>
   );
