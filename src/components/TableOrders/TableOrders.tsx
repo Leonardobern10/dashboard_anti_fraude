@@ -11,6 +11,7 @@ import {
 import RiskCell from "./RiskCell";
 import type { Order } from "../../types/Order";
 import StatusCell from "./StatusCell";
+import { useNavigate } from "react-router-dom";
 
 const headers = [
   "id",
@@ -28,6 +29,7 @@ type TableOrdersProps = {
 
 export default function TableOrders({ data }: TableOrdersProps) {
   const theme = useTheme();
+  const navigate = useNavigate();
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -45,7 +47,10 @@ export default function TableOrders({ data }: TableOrdersProps) {
         </TableHead>
         <TableBody>
           {data.map((el) => (
-            <TableRow key={el.id}>
+            <TableRow
+              key={el.id}
+              onClick={() => navigate(`/dashboard/${el.id}`)}
+            >
               <TableCell>{el.id}</TableCell>
               <TableCell>{el.user}</TableCell>
               <TableCell>{el.value}</TableCell>
