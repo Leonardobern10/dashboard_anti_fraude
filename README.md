@@ -32,7 +32,7 @@ O Dashboard Anti-Fraude permite aos usuários visualizar estatísticas de pedido
 1. Clone o repositório:
 
    ```bash
-   git clone <url-do-repositorio>
+   git clone https://github.com/Leonardobern10/dashboard_anti_fraude
    cd dashboard_anti_fraude
    ```
 
